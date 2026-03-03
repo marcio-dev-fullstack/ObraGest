@@ -1,131 +1,187 @@
-# EngApp: Gestão e Padronização de Protocolos
+# 1️⃣ Definição Inicial do Sistema
 
-**EngApp** é uma solução corporativa desenvolvida para digitalizar, padronizar e validar fluxos técnicos e normas de segurança em projetos de infraestrutura. O sistema foca em garantir a integridade de dados e a conformidade rigorosa com Normas Regulamentadoras (NRs), eliminando a burocracia do papel e mitigando riscos jurídicos e operacionais.
+## 🔹 Nome do App (exemplo)
 
-## Sumário
+**ObraGest – Sistema de Gestão para Engenharia Civil**
 
-* Visão Geral
-* Roadmap de Desenvolvimento
-* Stack Tecnológica
-* Arquitetura de Dados
-* Manual de Implantação
-* Propriedade Intelectual
+## 🔹 Objetivo do Aplicativo
 
-## Visão Geral
+Desenvolver um aplicativo para auxiliar engenheiros civis no gerenciamento de obras, controle de custos, cronograma, equipe e documentação técnica.
 
-O EngApp foi concebido para resolver o gap de comunicação entre o canteiro de obras e o escritório técnico. Através de formulários inteligentes e validação em tempo real, o app assegura que protocolos de **NR-10, NR-18 e NR-35** sejam seguidos à risca antes do início de qualquer atividade de risco.
+## 🔹 Público-alvo
 
-### Principais Diferenciais:
-
-* **Checklists Inteligentes:** Bloqueio de processos em caso de não conformidade.
-* **Relatórios Instantâneos:** Geração de ARTs e laudos em PDF com um clique.
-* **Evidência Digital:** Registro fotográfico com metadados e geolocalização.
-
-## Roadmap de Desenvolvimento
-
-### Fase 1: Fundação & Core (Concluído)
-
-* **Modelagem de Dados:** Estrutura relacional para protocolos, usuários e normas.
-* **RBAC (Role-Based Access Control):** Níveis de acesso distintos para Engenheiros, Técnicos e Auditores.
-* **CRUD de Campo:** Registro dinâmico de vistorias e atividades.
-
-### Fase 2: Automação e NRs (Em desenvolvimento)
-
-* **Engine de Validação:** Lógica programática para conformidade automática com NR-10, NR-18 e NR-35.
-* **Módulo ReportLab:** Geração de PDFs profissionais com gráficos e assinaturas digitais.
-* **Mídia:** Compressão automática de fotos para economia de banda em campo.
-
-### Fase 3: Inteligência de Negócio
-
-* **Dashboards (BI):** KPIs de segurança e produtividade via interface web.
-* **Geo-Fencing:** Validação de presença em obra via GPS.
-* **Ecossistema:** API REST para integração com softwares BIM e ERPs de mercado.
-
-### Fase 4: Resiliência e Mobilidade
-
-* **Offline First:** Sincronização de dados para obras em locais remotos.
-* **UI Industrial:** Interface adaptada para alta luminosidade e uso com equipamentos de proteção (EPIs).
-
-## Stack Tecnológica
-
-| Camada         | Tecnologia   | Justificativa Técnica.
-
-| **Linguagem**  | Python 3.12+ | Estabilidade e vasto ecossistema de análise de dados. 
-
-| **Framework**  | Django       | ORM potente para gerir a complexidade das normas técnicas. 
-
-| **Dados**      | Pandas       | Processamento de grandes volumes de dados de conformidade. 
-
-| **Relatórios** | ReportLab    | Precisão milimétrica na geração de documentos técnicos. 
-
-| **Frontend**   | Tailwind CSS | Estilização ágil e responsiva para tablets e smartphones. 
-
-## Manual de Implantação (Guia Rápido)
-
-Este guia é destinado a desenvolvedores e administradores de sistema.
-
-### 1. Pré-requisitos
-
-* Python 3.12 ou superior
-* PostgreSQL (Recomendado para produção)
-* Virtualenv ou Docker
-
-### 2. Configuração do Ambiente
-
-```bash
-# Clone o repositório
-git clone https://github.com/seu-usuario/engapp.git
-cd engapp
-
-# Crie o ambiente virtual
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# venv\Scripts\activate  # Windows
-
-# Instale as dependências
-pip install -r requirements.txt
-
-```
-
-### 3. Variáveis de Ambiente
-
-Crie um arquivo `.env` na raiz do projeto:
-
-```env
-DEBUG=True
-SECRET_KEY=sua_chave_secreta
-DB_NAME=engapp_db
-DB_USER=seu_usuario
-DB_PASSWORD=sua_senha
-
-```
-
-### 4. Inicialização do Banco
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser  # Para acessar o painel administrativo
-
-```
-
-### 5. Execução
-
-```bash
-python manage.py runserver
-
-```
-
-Acesse `http://127.0.0.1:8000` para visualizar a aplicação.
+* Engenheiros civis
+* Mestres de obras
+* Construtoras
+* Escritórios de engenharia
+* Estudantes de engenharia civil
 
 ---
 
-## Licença e Propriedade
+# 2️⃣ Levantamento de Requisitos
 
-**Copyright © 2026 KM PROJETOS.**
+A análise é dividida em:
 
-Este software é um produto proprietário. O código-fonte, design e metodologias aplicadas são de propriedade exclusiva da **KM PROJETOS**.
+* Requisitos Funcionais (RF)
+* Requisitos Não Funcionais (RNF)
+* Requisitos de Segurança
+* Regras de Negócio
 
-* **Desenvolvedor Responsável:** Márcio Rodrigues de Oliveira (Engenheiro de Software e Civil).
-* **Restrições:** A reprodução, distribuição ou uso comercial sem autorização expressa e por escrito do detentor dos direitos é estritamente proibida e sujeita a penalidades legais.
+---
 
+# 3️⃣ Requisitos Funcionais (RF)
+
+São as funções que o sistema deve executar.
+
+### RF-001 – Cadastro de Usuário
+
+O sistema deve permitir:
+
+* Cadastro de engenheiros
+* Login com e-mail e senha
+* Recuperação de senha
+
+---
+
+### RF-002 – Cadastro de Obras
+
+O sistema deve permitir:
+
+* Criar nova obra
+* Inserir:
+
+  * Nome da obra
+  * Endereço
+  * Cliente
+  * Valor do contrato
+  * Prazo
+* Editar e excluir obras
+
+---
+
+### RF-003 – Controle de Cronograma
+
+O sistema deve:
+
+* Permitir criar etapas da obra
+* Definir datas de início e término
+* Mostrar progresso em %
+* Exibir gráfico de andamento
+
+---
+
+### RF-004 – Controle de Custos
+
+O sistema deve:
+
+* Registrar despesas por categoria
+
+  * Material
+  * Mão de obra
+  * Equipamentos
+* Comparar custo previsto x realizado
+* Gerar relatório financeiro
+
+---
+
+### RF-005 – Diário de Obra
+
+O sistema deve:
+
+* Permitir registro diário
+* Anexar fotos
+* Inserir observações técnicas
+* Registrar condições climáticas
+
+---
+
+### RF-006 – Calculadora Técnica
+
+O sistema deve incluir:
+
+* Cálculo de volume de concreto
+* Cálculo de área
+* Cálculo de quantitativo de material
+
+---
+
+# 4️⃣ Requisitos Não Funcionais (RNF)
+
+### RNF-001 – Segurança
+
+* Criptografia de dados
+* Autenticação segura
+* Controle de acesso por perfil
+
+### RNF-002 – Compatibilidade
+
+* Android
+* iOS
+* Versão Web
+
+### RNF-003 – Armazenamento
+
+* Backup automático em nuvem
+* Sincronização online/offline
+
+### RNF-004 – Desempenho
+
+* Resposta inferior a 3 segundos
+* Capacidade para múltiplas obras simultâneas
+
+---
+
+# 5️⃣ Requisitos de Segurança
+
+* Controle de acesso por nível:
+
+  * Engenheiro
+  * Técnico
+  * Administrativo
+* Logs de auditoria
+* Proteção contra perda de dados
+
+---
+
+# 6️⃣ Regras de Negócio
+
+* Uma obra deve estar vinculada a um engenheiro responsável.
+* Uma despesa deve estar vinculada a uma obra.
+* O valor executado não pode ultrapassar o valor contratado sem alerta.
+* O cronograma deve permitir replanejamento.
+
+---
+
+# 7️⃣ Modelo Simplificado de Casos de Uso
+
+### Caso de Uso: Criar Obra
+
+**Ator:** Engenheiro
+**Fluxo principal:**
+
+1. Usuário faz login
+2. Acessa “Nova Obra”
+3. Preenche dados
+4. Salva
+5. Sistema confirma cadastro
+
+---
+
+# 8️⃣ Tecnologias Sugeridas (Desenvolver)
+
+* Frontend: Flutter ou React Native
+* Backend: Node.js ou Django
+* Banco: PostgreSQL
+* Cloud: AWS ou Firebase
+
+---
+
+# 9️⃣ Diferencial Estratégico (Se For Produto Comercial)
+
+* Modo Offline (para canteiro sem internet)
+* Assinatura digital de ART
+* Integração futura com órgãos como:
+
+  * Conselho Federal de Engenharia e Agronomia
+    
+  * Conselho Regional de Engenharia e Agronomia
