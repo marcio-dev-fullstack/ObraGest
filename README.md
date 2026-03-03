@@ -179,7 +179,5 @@ O sistema deve incluir:
 * Modo Offline (para canteiro sem internet)
 * Assinatura digital de ART
 * Integração futura com órgãos como:
-
-  * Conselho Federal de Engenharia e Agronomia
-    
+  * Conselho Federal de Engenharia e Agronomia    
   * Conselho Regional de Engenharia e Agronomia
