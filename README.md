@@ -1,8 +1,6 @@
 # 1️⃣ Definição Inicial do Sistema
 
-## 🔹 Nome do App (exemplo)
-
-**ObraGest – Sistema de Gestão para Engenharia Civil**
+## 🔹 **ObraGest – Sistema de Gestão para Engenharia Civil**
 
 ## 🔹 Objetivo do Aplicativo
 
